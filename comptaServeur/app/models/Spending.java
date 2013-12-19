@@ -2,10 +2,15 @@ package models;
 
 import java.util.List;
 
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
 @Entity
+@DiscriminatorColumn( name = "DTYPE", discriminatorType = DiscriminatorType.STRING)
+@DiscriminatorValue("spending")
 public class Spending extends FinancialOperation
 {
 	//Attributs

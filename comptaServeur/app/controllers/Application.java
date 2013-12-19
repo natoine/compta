@@ -5,8 +5,10 @@ import java.util.List;
 import models.FinancialOperation;
 import models.Income;
 import models.Spending;
+import models.SpendingNature;
 import play.data.Form;
 import play.mvc.*;
+import play.mvc.Http.RequestBody;
 import views.html.*;
 
 public class Application extends Controller {
@@ -22,7 +24,15 @@ public class Application extends Controller {
 
     public static Result submitSpending()
     {
-    	System.out.println("submitSpending body : " + request().body());
+    	RequestBody body = request().body();
+    	//System.out.println("submitSpending body : " + request().body());
+    	//Spending spending = spendingForm.bindFromRequest().get();
+    	Spending spending = new Spending();
+    	spending.setAmount(Float.parseFloat(body.asFormUrlEncoded().get("amount")[0]));
+    	spending.setDescription(body.asFormUrlEncoded().get("description")[0]);
+    	spending.setLabel(body.asFormUrlEncoded().get("label")[0]);
+    	spending.setNature(SpendingNature.findById(body.asFormUrlEncoded().get("nature")[0]));
+    	Spending.create(spending);
     	return ok();
     }
     

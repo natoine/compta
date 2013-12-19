@@ -19,7 +19,11 @@
 		<tr>
 			<td>@i</td>
 			<td>@operation.getNatureName()</td>
-			<td>@operation.getRelativeTo().getLabel()</td>
+			@if(operation.getRelativeTo() != null){
+				<td>@operation.getRelativeTo().getLabel()</td>
+			} else {
+				<td>no project</td> 
+			}
 			<td>@operation.getLabel()</td>
 			<td>@operation.getExpectedDate()</td>
 			<td>@operation.getEffectiveDate()</td>

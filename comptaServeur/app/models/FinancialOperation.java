@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
@@ -12,6 +14,7 @@ import play.db.ebean.Model;
 import com.avaje.ebean.Ebean;
 
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class FinancialOperation extends Model
 {
 
