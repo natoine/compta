@@ -1,7 +1,9 @@
 package models;
 
 import java.util.Date;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -28,6 +30,17 @@ public class Project extends Model
 	//Constructeur
 	public Project()
 	{
+	}
+
+	//Options
+	public static Map<String,String> options() 
+	{
+		List<Project> projects = all();
+		LinkedHashMap<String,String> options = new LinkedHashMap<String,String>();
+		for(Project project: projects) {
+			options.put("" + project.id, project.label);
+		}
+		return options;
 	}
 
 	//Persistance
@@ -81,7 +94,7 @@ public class Project extends Model
 	}
 
 	//Accesseurs
-	
+
 	public String getLabel() {
 		return label;
 	}

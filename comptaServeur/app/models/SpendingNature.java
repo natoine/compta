@@ -1,7 +1,9 @@
 package models;
 
 import java.util.Date;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -27,6 +29,17 @@ public class SpendingNature extends Model
 		{
 		}
 
+		//Options
+		public static Map<String,String> options() 
+		{
+			List<SpendingNature> natures = all();
+			LinkedHashMap<String,String> options = new LinkedHashMap<String,String>();
+			for(SpendingNature nature: natures) {
+				options.put("" + nature.id, nature.label);
+			}
+			return options;
+		}
+		
 		//Persistance
 
 		/**
