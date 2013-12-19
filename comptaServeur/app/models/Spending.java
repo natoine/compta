@@ -32,4 +32,21 @@ public class Spending extends FinancialOperation
 	{
 		return find.all();
 	}
+	
+	//Accesseurs Customs
+	
+	public String getNatureName()
+	{
+		return nature.getLabel();
+	}
+
+	//Accesseurs
+	
+	public SpendingNature getNature() {
+		return nature;
+	}
+
+	public void setNature(SpendingNature nature) {
+		this.nature = nature;
+	}
 }

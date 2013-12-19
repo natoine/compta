@@ -34,6 +34,8 @@ public abstract class FinancialOperation extends Model
 	@ManyToOne
 	public Project relativeTo ;
 	
+	public Project amount ;
+	
 	//Finder
 	public static Finder<Long, FinancialOperation> find = new Finder<Long, FinancialOperation>(Long.class, FinancialOperation.class);
 
@@ -52,7 +54,7 @@ public abstract class FinancialOperation extends Model
 		if(effectiveDate == null) return false ;
 		return true ;
 	}
-
+	
 	//Persistance
 
 	/**
@@ -102,6 +104,13 @@ public abstract class FinancialOperation extends Model
 	{
 		return find.byId(id);
 	}
+	
+	//Accesseurs Customs
+	
+	public String getNatureName()
+	{
+		return "";
+	}
 
 	//Accesseurs
 
@@ -147,5 +156,21 @@ public abstract class FinancialOperation extends Model
 	
 	public long getId() {
 		return id;
+	}
+
+	public Project getRelativeTo() {
+		return relativeTo;
+	}
+
+	public void setRelativeTo(Project relativeTo) {
+		this.relativeTo = relativeTo;
+	}
+
+	public Project getAmount() {
+		return amount;
+	}
+
+	public void setAmount(Project amount) {
+		this.amount = amount;
 	}
 }

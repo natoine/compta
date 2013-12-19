@@ -1,7 +1,27 @@
-@(message: String)
+@(operations: List[FinancialOperation])
 
-@main("Welcome to Play") {
+@main("Your Operations") {
 
-    @play20.welcome(message, style = "Java")
-
+	<table>
+		<tr>
+			<td>n°</td>
+			<td>nature</td>
+			<td>projet</td>
+			<td>nom</td>
+			<td>date prévue</td>
+			<td>date effective</td>
+			<td>montant</td>
+		</tr>
+   @for((operation, i) <- operations.zipWithIndex){
+		<tr>
+			<td>@i</td>
+			<td>@operation.getNatureName()</td>
+			<td>@operation.getRelativeTo().getLabel()</td>
+			<td>@operation.getLabel()</td>
+			<td>@operation.getExpectedDate()</td>
+			<td>@operation.getEffectiveDate()</td>
+			<td>@operation.getAmount()</td>
+		</tr>
+   }
+	</table>
 }
