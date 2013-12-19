@@ -1,11 +1,19 @@
 package models;
 
 import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Spending extends FinancialOperation
 {
+	//Attributs
+	
+	//permet de préciser le type de dépense, si c'est du matériel de bureau, des frais de déplacement ...
+	@ManyToOne
+	public SpendingNature nature ;
+	
 	//Finder
 	public static Finder<Long, Spending> find = new Finder<Long, Spending>(Long.class, Spending.class);
 

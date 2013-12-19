@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import play.db.ebean.Model;
 
@@ -30,6 +31,9 @@ public abstract class FinancialOperation extends Model
 
 	public String description ;
 
+	@ManyToOne
+	public Project relativeTo ;
+	
 	//Finder
 	public static Finder<Long, FinancialOperation> find = new Finder<Long, FinancialOperation>(Long.class, FinancialOperation.class);
 
@@ -140,15 +144,7 @@ public abstract class FinancialOperation extends Model
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
-	public static Finder<Long, FinancialOperation> getFind() {
-		return find;
-	}
-
-	public static void setFind(Finder<Long, FinancialOperation> find) {
-		FinancialOperation.find = find;
-	}
-
+	
 	public long getId() {
 		return id;
 	}
