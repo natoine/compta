@@ -63,6 +63,13 @@
 		@helper.inputText(incomeForm("label"))
 		@helper.inputText(incomeForm("description"))
 		@helper.inputText(incomeForm("amount"))
+		@select(
+            incomeForm("relativeTo"), 
+            options = options(Project.options()),
+            '_default -> "--- Choisir un projet ---",
+            '_label -> "Projet",
+            '_error -> incomeForm("relativeTo").error.map(_.withMessage("Please select your project"))
+        )
 	
 	<input type="submit" class="btn primary" value="Entrée !!!">
 	}

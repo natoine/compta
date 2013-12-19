@@ -14,7 +14,7 @@ import play.db.ebean.Model;
 import com.avaje.ebean.Ebean;
 
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public abstract class FinancialOperation extends Model
 {
 

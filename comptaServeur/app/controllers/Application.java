@@ -25,7 +25,6 @@ public class Application extends Controller {
     public static Result submitSpending()
     {
     	RequestBody body = request().body();
-    	//System.out.println("submitSpending body : " + request().body());
     	//Spending spending = spendingForm.bindFromRequest().get();
     	Spending spending = new Spending();
     	spending.setAmount(Float.parseFloat(body.asFormUrlEncoded().get("amount")[0]));
@@ -38,7 +37,13 @@ public class Application extends Controller {
     
     public static Result submitIncome()
     {
-    	System.out.println("submitIncome body : " + request().body());
+    	RequestBody body = request().body();
+    	//Income income = incomeForm.bindFromRequest().get();
+    	Income income = new Income();
+    	income.setAmount(Float.parseFloat(body.asFormUrlEncoded().get("amount")[0]));
+    	income.setDescription(body.asFormUrlEncoded().get("description")[0]);
+    	income.setLabel(body.asFormUrlEncoded().get("label")[0]);
+    	Income.create(income);
     	return ok();
     }
 }
