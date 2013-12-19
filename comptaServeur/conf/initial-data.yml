@@ -1,0 +1,23 @@
+
+# Natures
+
+natures:
+
+    - !!models.SpendingNature
+        label:      frais postaux
+
+    - !!models.SpendingNature
+        label:      déplacements
+
+    - !!models.SpendingNature
+        label:      consommables
+
+    - !!models.SpendingNature
+        label:      matériel de bureau
+
+    - !!models.SpendingNature
+        label:      documentation
+
+    - !!models.SpendingNature
+        label:      salaires
+
