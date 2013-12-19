@@ -34,7 +34,7 @@ public abstract class FinancialOperation extends Model
 	@ManyToOne
 	public Project relativeTo ;
 	
-	public Project amount ;
+	public float amount ;
 	
 	//Finder
 	public static Finder<Long, FinancialOperation> find = new Finder<Long, FinancialOperation>(Long.class, FinancialOperation.class);
@@ -166,11 +166,11 @@ public abstract class FinancialOperation extends Model
 		this.relativeTo = relativeTo;
 	}
 
-	public Project getAmount() {
+	public float getAmount() {
 		return amount;
 	}
 
-	public void setAmount(Project amount) {
+	public void setAmount(float amount) {
 		this.amount = amount;
 	}
 }

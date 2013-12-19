@@ -1,6 +1,27 @@
-@(operations: List[FinancialOperation])
+@(operations: List[FinancialOperation], spendingForm: Form[Spending], incomeForm: Form[Income])
 
 @main("Your Operations") {
+
+	<h2>Nouvelle Dépense</h2>
+	@helper.form(action = routes.Application.submitSpending()) {
+	
+		@helper.inputText(spendingForm("label"))
+		@helper.inputText(spendingForm("description"))
+		@helper.inputText(spendingForm("amount"))
+	
+	<input type="submit" class="btn primary" value="Dépense !!!">
+	
+	}
+	
+	<h2>Nouvelle Entrée</h2>
+	@helper.form(action = routes.Application.submitIncome()) {
+	
+		@helper.inputText(incomeForm("label"))
+		@helper.inputText(incomeForm("description"))
+		@helper.inputText(incomeForm("amount"))
+	
+	<input type="submit" class="btn primary" value="Entrée !!!">
+	}
 
 	<table>
 		<tr>
